@@ -637,7 +637,7 @@
   hasilPencarianDiv.innerHTML = '';
 
   // Gunakan endpoint yang benar dengan parameter q
-  fetch(`https://script.google.com/macros/s/AKfycbw7iFW7J4bYikv2i8NZZnhZE9U4M-egKAw6HqpHKnE9PAKywREKMZhuxlxkFNgG3Gd7/exec?q=${encodeURIComponent(input)}`)
+  fetch(`https://script.google.com/macros/s/AKfycby-gitpWXUDH1d6xu3_QlwmzbJVnI_BAMrbdNPN8Y91iQrd2uHdopUkmOMq3KqMlgFSfg/exec?q=${encodeURIComponent(input)}`)
     .then(res => {
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
       return res.json();
