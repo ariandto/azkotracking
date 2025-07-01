@@ -602,7 +602,7 @@
       
       <div class="search-container">
         <div class="search-box">
-          <input type="text" id="search-input" placeholder="Masukkan nomor order/nomor receive/nama customere..." autocomplete="off">
+          <input type="text" id="search-input" placeholder="Masukkan nomor order/nomor receive/nama customer..." autocomplete="off">
           <button id="search-button">
             <i class="fas fa-search"></i>
             Cari
@@ -651,6 +651,25 @@
     return;
   }
 
+  function formatTanggalKirim(noLC) {
+  if (!noLC || noLC.length < 6) return 'Tanggal tidak valid';
+
+  const tahun = '20' + noLC.substring(0, 2);
+  const bulan = noLC.substring(2, 4);
+  const tanggal = noLC.substring(4, 6);
+
+  const bulanNama = {
+    '01': 'Januari', '02': 'Februari', '03': 'Maret',
+    '04': 'April', '05': 'Mei', '06': 'Juni',
+    '07': 'Juli', '08': 'Agustus', '09': 'September',
+    '10': 'Oktober', '11': 'November', '12': 'Desember'
+  };
+
+  const namaBulan = bulanNama[bulan] || 'Bulan Tidak Valid';
+  return `${tanggal} ${namaBulan} ${tahun}`;
+}
+
+
   loadingDiv.style.display = 'flex';
   hasilPencarianDiv.innerHTML = '';
 
@@ -680,9 +699,14 @@
         `;
         return;
       }
+      
 
       const cardsHtml = data.map((item, index) => `
+      
         <div class="result-card" style="animation-delay: ${index * 0.1}s">
+           <div style="margin-bottom: 15px; color: white; font-weight: 600; font-size: 1.1rem;">
+      Tanggal Kirim: ${formatTanggalKirim(item.noLC)}
+    </div>
           <div class="card-header">
             <div class="order-icon">
               <i class="fas fa-box"></i>
@@ -696,7 +720,7 @@
     <div class="info-value">${item.kodeStore}</div>
   </div>
   <div class="info-group">
-    <div class="info-label">Nama Store</div>
+    <div class="info-label">Store Booking</div>
     <div class="info-value">${item.storeName}</div>
   </div>
   <div class="info-group">
@@ -853,5 +877,26 @@
     `;
     document.head.appendChild(style);
   </script>
+
+  <script>
+  function formatTanggalKirim(noLC) {
+    if (!noLC || noLC.length < 6) return 'Tanggal tidak valid';
+
+    const tahun = '20' + noLC.substring(0, 2);
+    const bulan = noLC.substring(2, 4);
+    const tanggal = noLC.substring(4, 6);
+
+    const bulanNama = {
+      '01': 'Januari', '02': 'Februari', '03': 'Maret',
+      '04': 'April', '05': 'Mei', '06': 'Juni',
+      '07': 'Juli', '08': 'Agustus', '09': 'September',
+      '10': 'Oktober', '11': 'November', '12': 'Desember'
+    };
+
+    const namaBulan = bulanNama[bulan] || 'Bulan Tidak Valid';
+    return `${tanggal} ${namaBulan} ${tahun}`;
+  }
+</script>
+
 </body>
 </html>
