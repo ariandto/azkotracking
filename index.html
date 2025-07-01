@@ -674,7 +674,7 @@
   hasilPencarianDiv.innerHTML = '';
 
   // Gunakan endpoint yang benar dengan parameter q
-  fetch(`https://script.google.com/macros/s/AKfycbxSJHwngAtFPGSPLzqY9j9poe6J_HzuA6FmzIzLHB6FNbZ0YeN5F5m7c0oTHC07TeD6HA/exec?q=${encodeURIComponent(input)}`)
+  fetch(`https://script.google.com/macros/s/AKfycbyYa1Er129YX3qcpxulaD40nNiKo94HjD3aH25LLqjApmEuqnEzCX5uU_VvoWAUnp7lqg/exec?q=${encodeURIComponent(input)}`)
     .then(res => {
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
       return res.json();
@@ -705,7 +705,8 @@
       
         <div class="result-card" style="animation-delay: ${index * 0.1}s">
            <div style="margin-bottom: 15px; color: white; font-weight: 600; font-size: 1.1rem;">
-      Tanggal Kirim: ${formatTanggalKirim(item.noLC)}
+       <span><i class="fas fa-calendar-alt" style="margin-right: 6px;"></i> Tanggal Kirim: ${formatTanggalKirim(item.noLC)}</span>
+  <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 12px; font-size: 0.9rem;">Status: ${item.status || 'N/A'}</span>
     </div>
           <div class="card-header">
             <div class="order-icon">
