@@ -842,13 +842,13 @@
       const actionButtons = document.createElement('div');
       actionButtons.className = 'action-buttons';
       actionButtons.innerHTML = `
-      //   <button class="action-btn btn-success" onclick="resetPencarian()">
-      //     <i class="fas fa-redo"></i> Cari Ulang
-      //   </button>
-      //   <button class="action-btn btn-danger" onclick="tutupHasil()">
-      //     <i class="fas fa-times"></i> Tutup Hasil
-      //   </button>
-      // `;
+        <button class="action-btn btn-success" onclick="resetPencarian()">
+          <i class="fas fa-redo"></i> Cari Ulang
+        </button>
+        <button class="action-btn btn-danger" onclick="tutupHasil()">
+          <i class="fas fa-times"></i> Tutup Hasil
+        </button>
+      `;
       hasilPencarianDiv.appendChild(actionButtons);
 
       showNotification('Data berhasil ditemukan!', 'success');
